@@ -3,6 +3,7 @@ import TodoForm from './TodoForm'
 import Todo from './Todo'
 import { v4 as uuidv4 } from 'uuid'
 import EditTodoForm from './EditTodoForm'
+import MarkAsRead from './MarkAsRead'
 uuidv4()
 
 const TodoWrapper = () => {
@@ -55,6 +56,10 @@ const TodoWrapper = () => {
         ))
     }
 
+    const clearAll = () => {
+        setTodos([])
+    }
+
 
     return (
         <div className='w-[350px] h-auto md:w-[600px] px-4 md:px-10 py-8 shadow-xl bg-[#1a1a40] rounded-2xl space-y-8'>
@@ -70,6 +75,7 @@ const TodoWrapper = () => {
                         )
                     ))
                 }
+                <MarkAsRead tasks={todos} clearAll={clearAll} />
             </div>
 
         </div>
