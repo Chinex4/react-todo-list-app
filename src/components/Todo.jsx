@@ -11,8 +11,8 @@ const Todo = ({ task, toggleCompleted, editTodo, deleteTodo }) => {
                 <input onClick={() => toggleCompleted(task.id)} type="checkbox" className='w-4 h-4 text-violet-600'/>
                 <p
                     className={
-                        `${task.completed ? 'text-slate-400 font-semibold line-through cursor-pointer'
-                            : 'text-white font-semibold cursor-pointer'}`
+                        `${task.completed ? 'text-slate-400 font-semibold line-through'
+                            : 'text-white font-semibold'}`
                     }
                 >{task.task}</p>
             </div>
