@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TodoForm from './TodoForm'
 import Todo from './Todo'
 import { v4 as uuidv4 } from 'uuid'
@@ -9,6 +9,17 @@ uuidv4()
 const TodoWrapper = () => {
 
     const [todos, setTodos] = useState([])
+
+    useEffect(() => {
+        const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+        setTodos(storedTodos);
+        console.log(storedTodos)
+    }, []);
+
+    // Update local storage whenever todos change
+    useEffect(() => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }, [todos]);
 
     const addTodo = (value) => {
         setTodos([
@@ -21,7 +32,6 @@ const TodoWrapper = () => {
             }
         ])
 
-        console.log(todos)
     }
 
     const toggleCompleted = (id) => {

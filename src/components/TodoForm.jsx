@@ -8,7 +8,6 @@ const TodoForm = ({ addTodo }) => {
 
         if (value !== "") {
             addTodo(value)
-            console.log(value)
             setValue("")
         }
     }
